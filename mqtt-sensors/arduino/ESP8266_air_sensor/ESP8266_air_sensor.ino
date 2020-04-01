@@ -56,7 +56,7 @@ void loadcerts() {
  }
 
  // Load client certificate file from SPIFFS
- File cert = SPIFFS.open("/certificate.der.crt", "r"); //replace esp.der with your uploaded file name
+ File cert = SPIFFS.open("/certs/certificate.der.crt", "r"); //replace esp.der with your uploaded file name
  if (!cert) {
    Serial.println("Failed to open cert file");
  }
@@ -72,7 +72,7 @@ void loadcerts() {
    Serial.println("cert not loaded");
 
  // Load client private key file from SPIFFS
- File private_key = SPIFFS.open("/private.der.key", "r"); //replace espkey.der with your uploaded file name
+ File private_key = SPIFFS.open("/certs/private.der.key", "r"); //replace espkey.der with your uploaded file name
  if (!private_key) {
    Serial.println("Failed to open private cert file");
  }
@@ -89,7 +89,7 @@ void loadcerts() {
 
 
  // Load CA file from SPIFFS
- File ca = SPIFFS.open("/amazon-ca.der.crt", "r"); //replace ca.der with your uploaded file name
+ File ca = SPIFFS.open("/certs/amazon-ca.der.crt", "r"); //replace ca.der with your uploaded file name
  if (!ca) {
    Serial.println("Failed to open ca ");
  }
