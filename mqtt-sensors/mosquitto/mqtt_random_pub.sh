@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 while :
 do
@@ -8,7 +8,13 @@ wind_dir=$(echo "scale=8; $RANDOM/32768*360" | bc)
 wind=$(echo "scale=8; $RANDOM/32768*100" | bc)
 rain=$(echo "scale=8; $RANDOM/32768*50" | bc)
 
-mosquitto_pub -d -h a3m1d3k4nlux10-ats.iot.eu-central-1.amazonaws.com   \
+if [ -z "$AWS_HOST" ]
+then
+	echo "you need to set AWS_HOST variable first" 
+	exit 1
+fi
+
+mosquitto_pub -d -h $AWS_HOST   \
               -t "\$aws/things/test/shadow/update" -p 8883        \
               --cafile certs/amazon-ca.pem.crt                          \
               --cert certs/certificate.pem.crt                          \
