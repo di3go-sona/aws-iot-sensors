@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 
+import sys
 import boto3
 import decimal
 import json
@@ -51,8 +52,11 @@ class DB:
 # Index Page
 @app.route('/')
 def landing_handler():
+    # sensors = {'air-sensor': ['temperature', 'humidity'],
+    #            'test': ['temperature', 'humidity','wind','wind_direction','rain'] }
     sensors = {'air-sensor': ['temperature', 'humidity'],
-               'test': ['temperature', 'humidity','wind','wind_direction','rain'] }
+               'riot-test-1': ['temperature', 'humidity',],
+               'riot-test-2': ['temperature', 'humidity',]  }
 
     # Render the default template with the help of jinja
     return render_template('index.html', DB=DB, sensors=sensors)
@@ -71,4 +75,10 @@ def sensor_metric(sensor):
 
 
 if __name__ == '__main__':
-    app.run(host="192.168.1.104")
+    if len(sys.argv) >= 2:
+        host = sys.argv[1]
+    else:
+        host = '127.0.0.1'
+        
+
+    app.run(host=host)
