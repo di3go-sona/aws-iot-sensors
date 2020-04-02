@@ -5,7 +5,7 @@ In order to reproduce the experiments have a look at the articles
 
 ### Part 1 - Building the IoT System Core
 In the first part I sat up a network in which sensors will communicate directly to AWS IoT core using TLS and certificates.
-Video:  https://www.youtube.com/watch?v=6vRpnfMh4z4
+Video:  https://www.youtube.com/watch?v=6vRpnfMh4z4  
 Article: https://medium.com/@diego.sonaglia/build-an-iot-system-with-arduino-aws-and-flask-f3b787f263d5   
 
 ![Arch Core](https://di3go-article-images.s3.eu-central-1.amazonaws.com/uPic/aws-iot-core.png)
