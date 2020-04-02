@@ -14,6 +14,6 @@ Article: https://medium.com/@diego.sonaglia/build-an-iot-system-with-arduino-aws
 In this second part I'm going to add a middleware composed of a mqtt bridge and a mqttsn gateway, in order to reduce the number of certificates to handle.
 
 Video: https://youtu.be/qZdXz5S78Q4   
-Article: https://medium.com/@diego.sonaglia/riot-os-and-mqttsn-for-aws-iot-62b95b9b6fca    
+Article: https://medium.com/@diego.sonaglia/riot-os-and-mqttsn-for-aws-iot-62b95b9b6fca
 
 ![aws-iot-mqttsn](https://di3go-article-images.s3.eu-central-1.amazonaws.com/uPic/aws-iot-mqttsn.png)
