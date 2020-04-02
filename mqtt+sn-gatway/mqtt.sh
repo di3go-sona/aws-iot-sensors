@@ -1,0 +1,1 @@
+(cd mosquitto && ./setup.sh)

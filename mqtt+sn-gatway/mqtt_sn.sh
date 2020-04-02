@@ -1,0 +1,1 @@
+(cd paho && ./setup.sh)
