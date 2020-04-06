@@ -1,7 +1,36 @@
 # aws-iot-sensors
 This is a repository containing various parts required to build an end to end setup for mqtt sensors based on aws IoT Core, DynamoDB and Flask as part of my MSC in Computer Science @ La Sapienza.
 
-In order to reproduce the experiments have a look at the articles
+The system is composed of 4 main parts:
+  - AWS Iot Backend
+  - MQTT/MQTT-SN gateways
+  - Sensors
+  - Dashboard
+
+Datas are collected from the sensors, they may be located everywhere, but they should have connectivity to reach at least a gateway and communicates the measurements via mqtt.
+
+AWS backend only allows secure connection with TSL, therefore we use gateways, these connects to the iot backend and forwards all mqtt and mqttsn messages, accepting also unsecure connections.
+
+### Backend
+
+### Gateway 
+```
+export AWS_HOST='your-numbers-ats.iot.eu-central-1.amazonaws.com'
+
+```
+
+### Sensor 
+```
+export MQTT_BROKER='127.0.0.1'
+```
+
+### Dashboard
+
+
+
+
+
+In order to set up the system you have to do 
 
 ### Part 1 - Building the IoT System Core
 In the first part I sat up a network in which sensors will communicate directly to AWS IoT core using TLS and certificates.
