@@ -1,0 +1,26 @@
+#! /bin/bash
+
+while :
+do
+temp=$(echo " $RANDOM/32768*100-50" | bc)
+hum=$(echo " $RANDOM/32768*100" | bc)
+wind_dir=$(echo " $RANDOM/32768*360" | bc)
+wind=$(echo " $RANDOM/32768*100" | bc)
+rain=$(echo " $RANDOM/32768*50" | bc)
+
+if [ -z "$AWS_HOST" ]; then
+	echo "you need to set AWS_HOST variable first" 
+	exit 1
+fi
+
+while ( True) ; do 
+mosquitto_pub -d -h $AWS_HOST   \
+              -t "\$aws/things/test/shadow/update" -p 8883        \
+              --cafile certs/amazon-ca.pem.crt                          \
+              --cert certs/certificate.pem.crt                          \
+              --key certs/private.pem.key                               \
+              -m  "{ \"state\": {\"desired\":{\"temperature\":$temp, \"humidity\":$hum, \"wind_direction\":$wind_dir, \"wind\":$wind,\"rain\":$rain} }}"  \
+              -q 1
+
+sleep 180
+done
