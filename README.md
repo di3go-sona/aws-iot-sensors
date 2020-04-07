@@ -12,6 +12,9 @@ Datas are collected from the sensors, they may be located everywhere, but they s
 AWS backend only allows secure connection with TSL, therefore we use gateways, these connects to the iot backend and forwards all mqtt and mqttsn messages, accepting also unsecure connections.
 
 ### Backend
+In order to setup the backend you have to create an amazon AWS account and get the address of the IoT mqtt broker, it has the following format `'your-numbers-ats.iot.aws-zone.amazonaws.com'`.
+
+After you may want to setup a 
 
 ### Gateway 
 ```
@@ -29,17 +32,15 @@ export MQTT_BROKER='127.0.0.1'
 
 
 
-
-In order to set up the system you have to do 
-
-### Part 1 - Building the IoT System Core
+### Videos and Articles
+###### Part 1 - Building the IoT System Core
 In the first part I sat up a network in which sensors will communicate directly to AWS IoT core using TLS and certificates.
 Video:  https://www.youtube.com/watch?v=6vRpnfMh4z4  
 Article: https://medium.com/@diego.sonaglia/build-an-iot-system-with-arduino-aws-and-flask-f3b787f263d5   
 
 ![Arch Core](https://di3go-article-images.s3.eu-central-1.amazonaws.com/uPic/aws-iot-core.png)
 
-### Part 2 - Adding the mqtt(sn) edges
+###### Part 2 - Adding the mqtt(sn) edges
 In this second part I'm going to add a middleware composed of a mqtt bridge and a mqttsn gateway, in order to reduce the number of certificates to handle.
 
 Video: https://youtu.be/qZdXz5S78Q4   
