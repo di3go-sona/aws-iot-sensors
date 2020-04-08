@@ -12,7 +12,7 @@ Datas are collected from the sensors, they may be located everywhere, but they s
 AWS backend only allows secure connection with TSL, therefore we use gateways, these connects to the iot backend and forwards all mqtt and mqttsn messages, accepting also unsecure connections.
 
 ### AWS Iot Backend
-![Arch Core](https://di3go-article-images.s3.eu-central-1.amazonaws.com/uPic/aws-iot-core.png){:height="50%" width="50%"}
+![Arch Core](https://di3go-article-images.s3.eu-central-1.amazonaws.com/uPic/aws-iot-core.png)<!-- .element style="height:400px" -->
 
 In order to setup the backend you have to create an amazon AWS account and get the address of the IoT mqtt broker, it has the following format `'your-numbers-ats.iot.aws-zone.amazonaws.com'`.
 
