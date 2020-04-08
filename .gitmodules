@@ -1,6 +1,0 @@
-[submodule "sensors/mqtt-sn/RIOT-src"]
-	path = sensors/mqtt-sn/RIOT-src
-	url = https://github.com/RIOT-OS/RIOT.git
-[submodule "gateway/rsmb/src"]
-	path = gateway/rsmb/src
-	url = https://github.com/eclipse/mosquitto.rsmb.git
