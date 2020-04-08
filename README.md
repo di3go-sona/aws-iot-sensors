@@ -39,6 +39,7 @@ Then you can use the `mqtt.sh` script that you find in my repo and it will downl
 This component will assume that there is an mqtt broker running on the deployment host listening for connections on port `1883` so you have two chances:
 - Deploy an MQTT bridge on the host where the mqttsn gateway will be deployed
 - Use ssh port forwarding ( or any similiar tool) in order to redirect port `1883` of the localhost to port `1883` of the mqtt bridge. ( have a look at my article for more detailed informations )
+
 You don't need to setup any host or certificate, you can simply run it with the `mqtt-sn.sh` script you find in the repository
 
 ### Sensor 
