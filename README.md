@@ -64,7 +64,7 @@ Article: https://medium.com/@diego.sonaglia/build-an-iot-system-with-arduino-aws
 
 
 ##### Part 2 - Adding the mqtt(sn) edges
-In this second part I explain how to  add a middleware composed of a mqtt bridge and a mqttsn gateway, in order to reduce the number of certificates to handle.
+In this second part I explain how to  add a middleware composed of a mqtt bridge and a mqttsn gateway, in order to reduce the number of certificates to handle, and then show how to realize a simple mqttsn based on Riot-OS and communicate with the AWS broker. 
 
 Video: https://youtu.be/qZdXz5S78Q4   
 Article: https://medium.com/@diego.sonaglia/riot-os-and-mqttsn-for-aws-iot-62b95b9b6fca
