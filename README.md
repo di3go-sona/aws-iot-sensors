@@ -7,12 +7,13 @@ The system is composed of 4 main parts:
   - Sensors
   - Dashboard
 
-Datas are collected from the sensors, they may be located everywhere, but they should have connectivity to reach at least a gateway and communicates the measurements via mqtt.
+Datas are collected from the sensors, they may be located everywhere, but they should have connectivity to reach at least a gateway and communicate the measurements via mqtt.
 
-AWS backend only allows secure connection with TSL, therefore we use gateways, these connects to the iot backend and forwards all mqtt and mqttsn messages, accepting also unsecure connections.
+AWS backend only allows secure connection with TSL, therefore we may want to use gateways, these connects to the iot backend using certificates and forwards all mqtt and mqttsn messages, accepting also unsecure connections.
 
 ### AWS Iot Backend
-Here you can see what is the architecture of our system
+Here you can have a quick glance of the architecture of the system.  
+
 <img src="https://di3go-article-images.s3.eu-central-1.amazonaws.com/uPic/aws-iot-core.png" alt="AWS Iot Backend" height="400px">
 
 In order to setup the backend you need to create an amazon AWS account and get the address of the IoT mqtt broker, it has the following format `your-numbers-ats.iot.aws-zone.amazonaws.com`.
