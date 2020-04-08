@@ -1,3 +1,3 @@
-[submodule "mqttsn-sensors/riot/RIOT-src"]
-	path = mqttsn-sensors/riot/RIOT-src
+[submodule "sensors/mqtt-sn/riot/RIOT-src"]
+	path = sensors/mqtt-sn/riot/RIOT-src
 	url = https://github.com/RIOT-OS/RIOT.git

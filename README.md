@@ -14,7 +14,7 @@ AWS backend only allows secure connection with TSL, therefore we use gateways, t
 ### AWS Iot Backend
 In order to setup the backend you have to create an amazon AWS account and get the address of the IoT mqtt broker, it has the following format `'your-numbers-ats.iot.aws-zone.amazonaws.com'`.
 
-After you may want to setup a 
+After you may want to setup a DynamoDB database table and create a new rule that automatically saves mqtt messages to the DB. ( have a look at the first article for more detailed informations)
 
 ![Arch Core](https://di3go-article-images.s3.eu-central-1.amazonaws.com/uPic/aws-iot-core.png)
 
