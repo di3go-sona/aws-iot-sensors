@@ -49,7 +49,7 @@ The dashboard is a simple flask app that retrieves data from DynamoDB using boto
 
 In order to run the server one may simply go to  `dashboard/` and run
 ```
-$ python3 flask 
+$ python3 app.py [hostname] 
 ```
 additionally we can specify a second argument, that is the address on which the socket is bind, by thefault it's localhost, meaning that we can only access it from the computer on which it is running, if we want to make it accessible from the outside one may specify a global address rather than a local one
 
