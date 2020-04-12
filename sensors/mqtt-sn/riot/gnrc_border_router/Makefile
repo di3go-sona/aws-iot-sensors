@@ -8,7 +8,7 @@ BOARD ?= native
 RIOTBASE ?= $(CURDIR)/../RIOT-src
 
 # Default to using ethos for providing the uplink when not on native
-UPLINK ?= ethos
+UPLINK ?= slip
 
 # Check if the selected Uplink is valid
 ifeq (,$(filter ethos slip wifi,$(UPLINK)))
@@ -76,11 +76,11 @@ IPV6_PREFIX ?= 2001:db8::/64
 ifeq (,$(filter native,$(BOARD)))
   ifeq (slip,$(UPLINK))
     # SLIP baudrate and UART device can be configured from make command
-    SLIP_BAUDRATE ?= 115200
+    SLIP_BAUDRATE ?= 500000
     include $(CURDIR)/Makefile.slip.conf
   else ifeq (ethos,$(UPLINK))
     # ethos baudrate can be configured from make command
-    ETHOS_BAUDRATE ?= 115200
+    ETHOS_BAUDRATE ?= 500000
     include $(CURDIR)/Makefile.ethos.conf
   else ifeq (wifi,$(UPLINK))
     # SSID and Password need to be configured
