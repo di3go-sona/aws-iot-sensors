@@ -6,3 +6,4 @@ venv
 RIOT-src
 gateways/paho/src
 /secrets
+secrets.py
