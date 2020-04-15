@@ -2,7 +2,7 @@
 __pycache__
 venv
 .idea
-/sensors/mqtt-sn/riot/gnrc_border_router/bin/*
+/sensors/*/riot/*/bin/*
 RIOT-src
 gateways/paho/src
 /secrets

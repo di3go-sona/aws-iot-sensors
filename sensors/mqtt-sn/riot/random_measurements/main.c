@@ -4,7 +4,7 @@
 #include <xtimer.h>
 
 
-# define INTERVAL 1 
+#define INTERVAL 10
 
 int get_humidity(void)
 {
@@ -68,7 +68,7 @@ int main(void)
       rain = get_rain();
       wind = get_wind();
       wind_dir = get_wind_dir();
-      printf("%d, %d, %d, %d, %d \n", temperature, humidity);
+      printf("%d, %d, %d, %d, %d \n",temperature, humidity, rain, wind, wind_dir);
       xtimer_sleep((uint32_t) INTERVAL);
     }
 
