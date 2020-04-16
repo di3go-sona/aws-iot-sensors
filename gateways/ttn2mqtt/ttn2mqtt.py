@@ -24,7 +24,7 @@ def make_aws_payload(msg):
 			'desired' : {
 				'temperature' : t,
 				'humidity' : h,
-				'rand' : r,
+				'rain' : r,
 				'wind' : w,
 				'wind_direction' : wd
 			}
@@ -40,9 +40,10 @@ def make_aws_payload(msg):
 
 def send_mqtt_msg(payload, topic):
 	client = mqtt.Client()
-	client.connect_srv("localhost", port=1883)
-	client.publish(topic, payload=payload, qos=0, retain=False)
-	client.disconnect()
+	mqtt.single(topic, payload, qos=0, retain=False, hostname="localhost",
+    port=1883, client_id="", keepalive=60, will=None, auth=None, tls=None,
+    protocol=mqtt.MQTTv311, transport="tcp")
+	print ('mqtt msg sent')
 
 def uplink_callback(msg, client):
     print("Received uplink from ", msg.dev_id)
