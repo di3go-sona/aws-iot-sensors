@@ -75,7 +75,7 @@ Article: https://medium.com/@diego.sonaglia/riot-os-and-mqttsn-for-aws-iot-62b95
 ##### Part 3 - Integratind LoRa with TTN
 The third part shows how to intagrate sensors communicating over LoRa into the main architecture using TheThings network
 
-Video: https://youtu.be/17uHJPXGsOA
+Video: https://youtu.be/17uHJPXGsOA    
 Article: https://medium.com/@diego.sonaglia/integrate-lorawan-in-your-iot-system-8c793404c756
 
 
