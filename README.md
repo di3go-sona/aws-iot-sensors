@@ -42,8 +42,12 @@ This component will assume that there is an mqtt broker running on the deploymen
 
 You don't need to setup any host or certificate, you can simply run it with the `mqtt-sn.sh` script you find in the repository
 
-### Sensor 
-Sensors can be built using different technologies, in this repo there are examples written in Arduino, Riot-Os and Bash but they all share the same protocols to communicate data: mqtt(sn).
+### Sensors 
+Sensors can be built using different technologies, in this repo there are examples written in Arduino, Riot-Os and Bash but they are all gathered by the fact that they all rely mostly over mqtt or mqttsn for communication of them.
+- In the first part you can find how to directly connect to an aws broker with arduino or mosquitto. ( And using real sensors as well )
+- In the second part there is an example of RioT mqttsn client using emcute
+- In the third part you can find a LoRa client written using Riot-Os
+
 
 ### Dashboard
 The dashboard is a simple flask app that retrieves data from DynamoDB using boto3 ( a python library to interact with AWS services ). This library is one of the upsides of working with amazon, you can simply configure `aws cli` and boto3 will connect using its credentials. (here you can find out more about installing  aws-cli https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
@@ -61,12 +65,17 @@ In the first part I will explain how to setup the AWS Iot Backend, the dashboard
 Video:  https://www.youtube.com/watch?v=6vRpnfMh4z4  
 Article: https://medium.com/@diego.sonaglia/build-an-iot-system-with-arduino-aws-and-flask-f3b787f263d5   
 
-
-
 ##### Part 2 - Adding the mqtt(sn) edges
-In this second part I explain how to  add a middleware composed of a mqtt bridge and a mqttsn gateway, in order to reduce the number of certificates to handle, and then show how to realize a simple mqttsn based on Riot-OS and communicate with the AWS broker. 
+The second part shows how to add a middleware composed of an mqtt bridge and a mqttsn gateway, in order to reduce the number of certificates to handle and the complexity of the sensors, and then show how to realize a simple mqttsn based on Riot-OS and communicate with the AWS broker. 
 
 Video: https://youtu.be/qZdXz5S78Q4   
 Article: https://medium.com/@diego.sonaglia/riot-os-and-mqttsn-for-aws-iot-62b95b9b6fca
+
+
+##### Part 3 - Integratind LoRa with TTN
+The third part shows how to intagrate sensors communicating over LoRa into the main architecture using TheThings network
+
+Video: https://youtu.be/17uHJPXGsOA
+Article: https://medium.com/@diego.sonaglia/integrate-lorawan-in-your-iot-system-8c793404c756
 
 
