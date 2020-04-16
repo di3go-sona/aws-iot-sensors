@@ -47,8 +47,7 @@ def send_mqtt_msg(payload, topic):
 def uplink_callback(msg, client):
     print("Received uplink from ", msg.dev_id)
     # print(msg)
-    payload, topic
-    make_aws_payload(msg)
+    payload, topic = make_aws_payload(msg)
 
 handler = ttn.HandlerClient(app_id, access_key)
 
