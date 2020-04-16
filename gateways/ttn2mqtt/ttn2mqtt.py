@@ -5,21 +5,30 @@ from base64 import b64decode
 import paho.mqtt.client as mqtt
 import paho.mqtt.publish as publish
 
+
+# dummy credentials
 app_id = "foobar"
 access_key = "ttn-account-v2.some_numbers"
 
-# overrides dummy secrets
+# import real credentials
 from secrets import *
 
+
 def parse_ttn_msg(msg):
+	# parse ttn messages received as a ttn message object
+	# returns aws payload and topic
+
 	dev_id = msg.dev_id
 	payload = msg.payload_raw
+	# this is a quite 'hacky' unpacking, is basically doing the following
+	# decoding base 64 | split on ',' | convert str to int | sets h,t,r,w,wd variables
 	data = b64decode(payload).decode('ascii')
 	measurements = [ int(m) for m in data.strip().split(',') ]
 	h,t,r,w,wd = measurements
 
 	topic = f"$aws/things/{dev_id}/shadow/update"
 
+	# this is the json format required by aws to update things' shadows
 	aws_payload = str({
 		"state" : {
 			"desired" : {
@@ -32,26 +41,25 @@ def parse_ttn_msg(msg):
 
 		}
 	}).replace('\'','\"')
+
 	return  aws_payload, topic
 	
 	
 
 def send_aws_msg(payload, topic):
-	
-	print (f'mqtt msg sending on topic {topic}')
-	print(payload)
-
+	# one line mqtt publisher to aws local bridge
 	publish.single(topic, payload, qos=0, retain=False, hostname="localhost",
-    port=1883, client_id="ttnbridge", keepalive=60, will=None, auth=None, tls=None,
-    protocol=mqtt.MQTTv311, transport="tcp")
-
+	port=1883, client_id="ttnbridge", keepalive=60, will=None, auth=None, tls=None,
+	protocol=mqtt.MQTTv311, transport="tcp")
+	print(payload)
 	print ('mqtt msg sent')
 
 def uplink_callback(msg, client):
-    print("Received uplink from ", msg.dev_id)
-    print(msg)
-    payload, topic = parse_ttn_msg(msg)
-    send_aws_msg(payload,topic)
+	# callback fired when a message is published on ttn mqtt broker
+	print("Received uplink from ", msg.dev_id)
+	print(msg)
+	payload, topic = parse_ttn_msg(msg)
+	send_aws_msg(payload,topic)
 
 
 print(app_id)
@@ -61,12 +69,14 @@ ttn_mqtt_client = ttn_handler.data()
 ttn_mqtt_client.set_uplink_callback(uplink_callback)
 ttn_mqtt_client.connect()
 
-
+# publish a test message
 publish.single('test', 'hola', qos=0, retain=False, hostname="localhost",
-    port=1883, client_id="ttnbridge", keepalive=60, will=None, auth=None, tls=None,
-    protocol=mqtt.MQTTv311, transport="tcp")
+	port=1883, client_id="ttnbridge", keepalive=60, will=None, auth=None, tls=None,
+	protocol=mqtt.MQTTv311, transport="tcp")
 
 
-
-time.sleep(60)
+# the client subrscriber is asynchronous, therefore
+# if we do not sleep the application will be 
+# automatically closed 
+time.sleep(60*60)
 ttn_mqtt_client.close()

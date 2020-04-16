@@ -54,9 +54,11 @@ class DB:
 def landing_handler():
     # sensors = {'air-sensor': ['temperature', 'humidity'],
     #            'test': ['temperature', 'humidity','wind','wind_direction','rain'] }
-    sensors = {'air-sensor': ['temperature', 'humidity'],
+    sensors = {
                'riot-test-1': ['temperature', 'humidity',],
-               'riot-test-2': ['temperature', 'humidity',]  }
+               'riot-ttn-1': ['temperature', 'humidity','rain','wind','wind_direction'], 
+               'riot-ttn-2': ['temperature', 'humidity','rain','wind','wind_direction'], 
+               }
 
     # Render the default template with the help of jinja
     return render_template('index.html', DB=DB, sensors=sensors)
