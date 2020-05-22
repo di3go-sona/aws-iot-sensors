@@ -93,9 +93,9 @@
                   <thead>
 
                  <tr>
-                    <td>
+<!--                     <td>
                          {{ 'timestamp'  }}
-                     </td>
+                     </td> -->
                     {% for metric in  metrics  %}
                      <td>
                          {{ metric  }}
@@ -106,9 +106,9 @@
                  {% for measures in  DB.retrieve_values(sensor)  %}
 
                  <tr>
-                    <td>
+<!--                     <td>
                          {{ measures['timestamp']  }}
-                     </td>
+                     </td> -->
                     {% for metric in  metrics  %}
                      <td>
                          {{ measures[metric]  }}

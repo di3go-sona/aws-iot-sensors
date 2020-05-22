@@ -2,6 +2,7 @@
 
 paho_dir="src"
 paho_build_dir="mqtt-sn-gateway"
+rm -rf $paho_dir $paho_build_dir
 mkdir "$paho_build_dir"
 git clone https://github.com/eclipse/paho.mqtt-sn.embedded-c "$paho_dir"  &&
 cd "$paho_dir/MQTTSNGateway" &&    

@@ -2,8 +2,10 @@ $(document).ready(function () {
   function isNew(data){
     var sensor = data.sensor ;
     var timestamp = data.timestamp ;
-    var old_timestamp = $("#" + sensor + " tbody tr td").html();
+    var old_timestamp = $("#" + sensor + " #current-timestamp").html();
+    console.log('Old Timestamp')
     console.log(old_timestamp.trim());
+    console.log('Timestamp')
     console.log(timestamp);
     console.log(old_timestamp.trim() == String(timestamp));
     return old_timestamp.trim() == String(timestamp);
@@ -39,7 +41,7 @@ $(document).ready(function () {
   }
 
   $('.container >  .content-tab').each( function (i, s) {
-    setInterval(ajax_update, 10000, s.id )
+    setInterval(ajax_update, 1000, s.id )
 
   })
 

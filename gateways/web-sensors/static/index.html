@@ -1,0 +1,88 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/rickshaw.css">
+
+
+  <meta name="theme-color" content="#fafafa">
+
+
+</head>
+
+<body>
+
+  <!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+  <button id='permission-button'>Enable Sensors</button>
+  <button id='ping-button'>Ping</button>
+  <button id='send-raw-button'>Send Raw</button>
+  <button id='send-proc-button'>Send Proc</button>
+
+  <!-- Add your site or application content here -->
+  <p>Accelerometer dashboard</p>
+  <p>Sensor Freq: <span id="sensor_freq">null</span>
+  </p>
+  <p>Sampling Freq: <span id="sampling_freq">null</span>
+  </p>
+  <p>Walking mag: <span id="walking_mag">null</span>
+  </p>
+  <p>Activity: <span id="activity">null</span>
+  </p>
+  <p>Gateway : <span id="gateway_status">null</span>
+  </p>
+  <p>Sending: <span id="sending">null</span>
+  </p>
+  <p>Acc X: <span id="acc-x">null</span>
+  </p>
+  <p>Acc Y: <span id="acc-y">null</span>
+  </p>
+  <p>Acc Z: <span id="acc-z">null</span>
+  </p>
+
+  <div class="time charts-wrapper" >
+    <div id="chart1"></div>
+    <div id="chart2"></div>
+  </div>
+  <div class="freq charts-wrapper" >
+    <div id="chart3"></div>
+  </div>
+
+
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.js"   integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM="   crossorigin="anonymous"></script>
+  <script src="js/vendor/modernizr-3.8.0.min.js"></script>
+  <script src="js/d3/d3.js"></script>
+  <script src="js/rickshaw/rickshaw.js"></script>
+  <script src="js/dsp.js"></script>
+
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+<!--  <script src="node_modules/fft-js/index.js"></script>-->
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set','transport','beacon'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+</body>
+
+</html>

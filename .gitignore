@@ -8,3 +8,17 @@ gateways/paho/src
 /secrets
 secrets.py
 certs/*
+ssl/*
+
+/gateways/mosquitto/CMakeCache.txt
+/gateways/mosquitto/CMakeFiles/
+/gateways/mosquitto/CTestTestfile.cmake
+/gateways/mosquitto/Makefile
+/gateways/mosquitto/client/
+/gateways/mosquitto/cmake_install.cmake
+/gateways/mosquitto/lib/*
+/gateways/mosquitto/libmosquitto.pc
+/gateways/mosquitto/libmosquittopp.pc
+/gateways/mosquitto/man/
+/gateways/mosquitto/src/
+/gateways/certs/

@@ -7,9 +7,10 @@ import json
 import time
 from flask import Flask, render_template
 from boto3.dynamodb.conditions import Key, Attr
-
+from pprint import pprint
 app = Flask(__name__)
 db = boto3.resource('dynamodb', region_name='eu-central-1')
+aws_things=None
 
 # Utility class to parse dynamodb answers
 class DecimalEncoder(json.JSONEncoder):
@@ -26,14 +27,14 @@ class DB:
         response = table.query(
             KeyConditionExpression=Key('sensor').eq(sensor),
             ScanIndexForward=False,
-            Limit=20
+            Limit=100
         )
         items = []
 
         for i in response[u'Items']:
             # Transforming timestamp to readable hour and minutes
             # sorry for the awfullness of this line
-            i['message']['timestamp'] = datetime.fromtimestamp(int(i['timestamp'][:-3])).strftime('%H:%M')
+            i['message']['timestamp'] = datetime.fromtimestamp(int(i['timestamp'][:-3])).strftime('%H:%M:%S')
 
             if metric is not None:
                 #if metric is set return only that value
@@ -47,18 +48,17 @@ class DB:
 
     # Query db for the last measures of a sensor
     def retrieve_value(sensor, metric=None):
-        return DB.retrieve_values(sensor, metric)[0]
+        res = DB.retrieve_values(sensor, metric)
+        if res and len(res) > 0:
+            return res[0]
+
 
 # Index Page
 @app.route('/')
 def landing_handler():
     # sensors = {'air-sensor': ['temperature', 'humidity'],
     #            'test': ['temperature', 'humidity','wind','wind_direction','rain'] }
-    sensors = {
-               'riot-test-1': ['temperature', 'humidity',],
-               'riot-ttn-1': ['temperature', 'humidity','rain','wind','wind_direction'], 
-               'riot-ttn-2': ['temperature', 'humidity','rain','wind','wind_direction'], 
-               }
+    sensors = aws_things
 
     # Render the default template with the help of jinja
     return render_template('index.html', DB=DB, sensors=sensors)
@@ -76,11 +76,35 @@ def sensor_metric(sensor):
     return json.dumps(DB.retrieve_value(sensor), cls=DecimalEncoder)
 
 
+class IoT:
+
+    def get_things():
+        res = boto3.client('iot').list_things()['things']
+        things_names = [t['thingName'] for t in res]
+        things = {}
+        for t in things_names:
+            t_dic = DB.retrieve_value(t)
+            if t_dic:
+                k = list(t_dic.keys())
+                if 'sensor' in k:
+                    k.remove('sensor')
+                # if 'timestamp' in k:
+                #     k.remove('timestamp')
+                things[t] = (list(k))
+
+
+
+        return things
+
+
+
 if __name__ == '__main__':
     if len(sys.argv) >= 2:
         host = sys.argv[1]
     else:
         host = '127.0.0.1'
-        
+
+
+    aws_things = (IoT.get_things())
 
     app.run(host=host)
