@@ -66,16 +66,24 @@ Video:  https://www.youtube.com/watch?v=6vRpnfMh4z4
 Article: https://medium.com/@diego.sonaglia/build-an-iot-system-with-arduino-aws-and-flask-f3b787f263d5   
 
 ##### Part 2 - Adding the mqtt(sn) edges
-The second part shows how to add a middleware composed of an mqtt bridge and a mqttsn gateway, in order to reduce the number of certificates to handle and the complexity of the sensors, and then show how to realize a simple mqttsn based on Riot-OS and communicate with the AWS broker. 
+The second part is about how to add a middleware composed of an mqtt bridge and an mqttsn gateway, in order to reduce the number of certificates to handle and the complexity of the sensors. and how to realize a simple mqtt/sn client based on Riot-OS and integrate it with the preexisting environment.
 
 Video: https://youtu.be/qZdXz5S78Q4   
 Article: https://medium.com/@diego.sonaglia/riot-os-and-mqttsn-for-aws-iot-62b95b9b6fca
 
 
 ##### Part 3 - Integratind LoRa with TTN
-The third part shows how to intagrate sensors communicating over LoRa into the main architecture using TheThings network
+In the third part we were asked to intagrate sensors communicating over LoRa into the main architecture, using TheThingsNetwork as LoraWan gateway.
 
 Video: https://youtu.be/17uHJPXGsOA    
 Article: https://medium.com/@diego.sonaglia/integrate-lorawan-in-your-iot-system-8c793404c756
+
+##### Part 4 - CrowdSensing
+In the last part we were asked to use web sensors in order to detect if the holder of a smartphone is walking or not, and display the results using the preexistening infrastructure.
+
+
+Video: 
+Article: https://medium.com/@diego.sonaglia/detecting-the-walking-frequency-iot-websensors-ea9044e1430c
+
 
 
