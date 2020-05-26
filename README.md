@@ -83,7 +83,7 @@ In the third part we were asked to intagrate sensors communicating over LoRa int
 Video: https://youtu.be/17uHJPXGsOA    
 Article: https://medium.com/@diego.sonaglia/integrate-lorawan-in-your-iot-system-8c793404c756
 
-##### Part 4 - CrowdSensing
+##### Part 4 - WebSensors - Detect walking
 In the last part we were asked to use web sensors in order to detect if the holder of a smartphone is walking or not, and display the results using the preexistening infrastructure.
 
 Video: https://youtu.be/s9QwHSHgmMc    
